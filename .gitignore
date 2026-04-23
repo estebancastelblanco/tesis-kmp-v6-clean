@@ -1,0 +1,33 @@
+# ---- KMP / Gradle ----
+.gradle/
+build/
+captures/
+local.properties
+.idea/
+*.iml
+
+# ---- iOS ----
+xcuserdata/
+*.xcworkspace/xcuserdata/
+**/xcuserdata/
+DerivedData/
+
+# ---- Node (GitGraph) ----
+node_modules/
+pipeline/sbom/sbom.json
+pipeline/sbom/graph.json
+pipeline/ci/diff.json
+pipeline/ci/report.json
+
+# ---- Python analyzer ----
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.venv-subagent/
+.mypy_cache/
+.ruff_cache/
+
+# ---- OS ----
+.DS_Store
