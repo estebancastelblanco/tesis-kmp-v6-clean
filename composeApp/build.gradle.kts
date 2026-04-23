@@ -96,7 +96,7 @@ kotlin {
         iosMain.dependencies {
            //iOS dependencies
             implementation("app.cash.sqldelight:native-driver:2.0.1")
-            implementation("co.touchlab:stately-common:2.0.5")
+            implementation("co.touchlab:stately-common:2.1.0")
 
             //Ktor
             implementation(libs.ktor.client.darwin)
