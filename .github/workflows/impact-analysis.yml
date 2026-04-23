@@ -125,10 +125,49 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0
 
-      - name: Install analyzer + cairosvg
+      - name: Install analyzer + cairosvg + DroidBot
         run: |
+          set -euo pipefail
           pip install ./tools/kmp-impact-analyzer
           pip install "cairosvg==2.7.1"
+          # DroidBot on PyPI is Python 2 only — install from GitHub (Python 3),
+          # pin androguard 3.4.0a1 (last version with the bytecode API DroidBot
+          # expects) and fix the entry point that ships with a broken import.
+          pip install "androguard==3.4.0a1" "droidbot @ git+https://github.com/honeynet/droidbot.git"
+          sed -i 's/from start import/from droidbot.start import/' "$(which droidbot)"
+          # Patch DroidBot's app.py so it survives modern APK resources:
+          # androguard 3.x can crash when parsing AGP 8+ resource tables; wrap
+          # the offending calls so DroidBot still explores the activities.
+          PKG=$(python3 -c "import importlib.util; print(importlib.util.find_spec('droidbot').submodule_search_locations[0])")
+          python3 <<PATCH
+          from pathlib import Path
+          app_py = Path("$PKG/app.py")
+          src = app_py.read_text()
+          lines = src.split('\n')
+          patched, changed = [], False
+          for line in lines:
+              guarded = False
+              for m in ['get_app_name', 'get_main_activity', 'get_permissions', 'get_activities']:
+                  if f'self.apk.{m}()' in line and 'try' not in line:
+                      indent = line[:len(line) - len(line.lstrip())]
+                      attr = line.split('=')[0].strip()
+                      default = '[]' if ('activities' in attr or 'permissions' in attr) \
+                          else 'self.package_name or "unknown"' if 'name' in attr else 'None'
+                      patched.append(f'{indent}try:')
+                      patched.append(f'{indent}    {line.strip()}')
+                      patched.append(f'{indent}except Exception:')
+                      patched.append(f'{indent}    {attr} = {default}')
+                      guarded = changed = True
+                      break
+              if not guarded:
+                  patched.append(line)
+          if changed:
+              app_py.write_text('\n'.join(patched))
+              print("Patched DroidBot app.py")
+          else:
+              print("DroidBot app.py already patched / nothing to patch")
+          PATCH
+          droidbot --help | head -3 || echo "(droidbot help failed, continuing)"
 
       # ── Per-target compile → PR labels ────────────────────────────────────
       - name: Compile Kotlin targets (AFTER)
@@ -198,16 +237,140 @@ jobs:
               });
             }
 
-      # ── kmp-impact-analyzer ──────────────────────────────────────────────
-      - name: Run kmp-impact analyze (static only)
+      # ── Detect the Android application module (for DroidBot) ─────────────
+      - name: Detect Android app module
+        id: detect-app
         run: |
+          chmod +x gradlew
+          for mod in app composeApp androidApp android-app; do
+            if [ -d "$mod" ]; then
+              echo "app_module=:${mod}" >> "$GITHUB_OUTPUT"
+              echo "app_dir=${mod}"      >> "$GITHUB_OUTPUT"
+              echo "Detected Android module: :${mod}"
+              exit 0
+            fi
+          done
+          echo "No Android app module found"
+          echo "app_module=" >> "$GITHUB_OUTPUT"
+
+      # ── Build APKs (BEFORE and AFTER versions) ───────────────────────────
+      - name: Build BEFORE APK
+        if: steps.detect-app.outputs.app_module != ''
+        continue-on-error: true
+        env:
+          APP_MOD: ${{ steps.detect-app.outputs.app_module }}
+        run: |
+          # Temporarily restore the base branch catalog to compile the BEFORE
+          # variant of the app without polluting the working tree permanently.
+          git show "${{ github.event.pull_request.base.sha || 'HEAD' }}:gradle/libs.versions.toml" \
+            > gradle/libs.versions.toml 2>/dev/null || true
+          ./gradlew "${APP_MOD}:assembleDebug" --no-daemon 2>&1 | tail -20
+          APK=$(find . -name "*.apk" -path "*/debug/*" | head -1)
+          if [ -n "$APK" ]; then cp "$APK" /tmp/before.apk && echo "BEFORE APK: $APK"; fi
+          git checkout -- gradle/libs.versions.toml
+
+      - name: Build AFTER APK
+        if: steps.detect-app.outputs.app_module != ''
+        continue-on-error: true
+        env:
+          APP_MOD: ${{ steps.detect-app.outputs.app_module }}
+        run: |
+          ./gradlew clean "${APP_MOD}:assembleDebug" --no-daemon 2>&1 | tail -20
+          APK=$(find . -name "*.apk" -path "*/debug/*" | head -1)
+          if [ -n "$APK" ]; then cp "$APK" /tmp/after.apk && echo "AFTER APK: $APK"; fi
+
+      # ── Run DroidBot on an Android emulator ──────────────────────────────
+      - name: Enable KVM
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ ! -f /tmp/before.apk ]; then
+            echo "No BEFORE APK, skipping emulator setup"
+            exit 0
+          fi
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Write DroidBot script
+        if: always()
+        run: |
+          cat > /tmp/run-droidbot.sh <<'DBSCRIPT'
+          #!/usr/bin/env bash
+          set -x
+          if [ ! -f /tmp/before.apk ]; then
+            echo "No BEFORE APK — skip DroidBot entirely"
+            exit 0
+          fi
+          echo "=== DroidBot on BEFORE APK ==="
+          droidbot -a /tmp/before.apk -o /tmp/droidbot-before \
+            -policy dfs_greedy -count 150 -timeout 120 \
+            -grant_perm -keep_env -is_emulator || true
+          if [ -f /tmp/after.apk ]; then
+            echo "=== DroidBot on AFTER APK ==="
+            droidbot -a /tmp/after.apk -o /tmp/droidbot-after \
+              -policy dfs_greedy -count 150 -timeout 120 \
+              -grant_perm -keep_env -is_emulator || true
+          else
+            echo "=== AFTER APK missing — reusing BEFORE as baseline ==="
+            cp -R /tmp/droidbot-before /tmp/droidbot-after
+          fi
+          echo "=== DroidBot done ==="
+          DBSCRIPT
+          chmod +x /tmp/run-droidbot.sh
+
+      - name: Run DroidBot on emulator
+        if: always()
+        continue-on-error: true
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
+          disable-animations: true
+          script: /tmp/run-droidbot.sh
+
+      # ── CodeCharta web viewer (cached across runs) ───────────────────────
+      - name: Cache CodeCharta viewer
+        id: cc-cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/codecharta-viewer
+          key: codecharta-vis-1.142.0
+
+      - name: Download CodeCharta viewer
+        if: steps.cc-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download vis-1.142.0 --repo MaibornWolff/codecharta \
+            --pattern 'web.zip' --dir /tmp/ --clobber
+          unzip -q /tmp/web.zip -d /tmp/cc-extract/
+          # web.zip extracts to dist/bundler/browser/ — flatten it
+          mv /tmp/cc-extract/dist/bundler/browser /tmp/codecharta-viewer
+          echo "CodeCharta viewer ready at /tmp/codecharta-viewer/index.html"
+
+      # ── kmp-impact-analyzer (uses DroidBot output when available) ────────
+      - name: Run kmp-impact analyze
+        run: |
+          set -euo pipefail
+          DYNAMIC_ARGS="--skip-dynamic"
+          if [ -d /tmp/droidbot-before ]; then
+            DYNAMIC_ARGS="--droidbot-before-output /tmp/droidbot-before --droidbot-after-output /tmp/droidbot-after"
+            echo "Dynamic analysis enabled (DroidBot output present)"
+          else
+            echo "No DroidBot output — running static-only analysis"
+          fi
           kmp-impact analyze \
             --repo . \
             --dependency "$DEP_GROUP" \
             --before-version "$BEFORE_VER" \
             --after-version "$AFTER_VER" \
             --output-dir /tmp/output \
-            --skip-dynamic
+            $DYNAMIC_ARGS
 
       # ── GitGraph: SBOM → graph → impact report ────────────────────────────
       - name: GitGraph — fetch diff
@@ -253,9 +416,10 @@ jobs:
           PAGES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: node pipeline/ci/analyze_impact.js
 
-      # ── Hydrate GitGraph assets into the merged report ────────────────────
-      - name: Hydrate GitGraph into output
+      # ── Hydrate GitGraph + CodeCharta + DroidBot assets into the report ───
+      - name: Hydrate viewer assets into output
         run: |
+          # -- GitGraph
           mkdir -p /tmp/output/gitgraph
           if [ -f pipeline/visualization/arc_diagram.html ]; then
             cp pipeline/visualization/arc_diagram.html /tmp/output/gitgraph/arc_diagram.html
@@ -270,9 +434,25 @@ jobs:
           if [ -f pipeline/ci/diff.json ]; then
             cp pipeline/ci/diff.json /tmp/output/gitgraph/diff.json
           fi
+          # -- CodeCharta (Phase 5 embed)
+          if [ -d /tmp/codecharta-viewer ]; then
+            mkdir -p /tmp/output/phase5
+            cp -R /tmp/codecharta-viewer /tmp/output/phase5/codecharta-viewer
+            echo "CodeCharta viewer copied into /tmp/output/phase5/"
+          fi
+          # -- DroidBot UTG (Phase 3 embed)
+          if [ -d /tmp/droidbot-before ]; then
+            mkdir -p /tmp/output/phase3/before-utg /tmp/output/phase3/after-utg /tmp/output/phase3/impact-utg
+            cp -R /tmp/droidbot-before/. /tmp/output/phase3/before-utg/
+            cp -R /tmp/droidbot-after/.  /tmp/output/phase3/after-utg/
+            cp -R /tmp/droidbot-after/.  /tmp/output/phase3/impact-utg/
+            echo "DroidBot UTG copied into /tmp/output/phase3/"
+          fi
 
-      # The iframe uses src="gitgraph/arc_diagram.html" which internally
-      # fetches "../sbom/graph.json". Keep the relative layout identical.
+      # The iframes use relative paths — the site bundle preserves the layout:
+      #   report root/gitgraph/arc_diagram.html  → fetch ../sbom/graph.json
+      #   report root/phase5/codecharta-viewer/index.html
+      #   report root/phase3/impact-utg/...
 
       - name: Rebuild report with merged assets
         run: |
