@@ -1,0 +1,181 @@
+{
+  "dependency_group": "io.ktor",
+  "version_before": "3.0.0",
+  "version_after": "3.4.3",
+  "risk_level": "high",
+  "recommendation": "Hold merge until impacted files are reviewed and targeted regression checks pass.",
+  "report_url": "",
+  "total_impacted_files": 18,
+  "total_impacted_screens": 15,
+  "direct_impacts": 4,
+  "transitive_impacts": 14,
+  "expect_actual_impacts": 0,
+  "total_project_files": 37,
+  "dynamic_status": "skipped",
+  "dynamic_summary": "skipped",
+  "dynamic_diffs": 0,
+  "before_screens": 0,
+  "after_screens": 0,
+  "screen_mappings": 15,
+  "trace_entries": 18,
+  "seed_files": [
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/di/appModule.kt",
+    "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+    "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt"
+  ],
+  "impacted_screens": [
+    "AllExpensesHeaderPreview",
+    "App",
+    "AppTheme",
+    "ExpenseAmount",
+    "ExpenseAmountPreview",
+    "ExpenseDescription",
+    "ExpenseScreenPreview",
+    "Expenses",
+    "ExpensesDetailScreen",
+    "ExpensesItemPreview",
+    "ExpensesTotalHeaderPreview",
+    "MainApplication",
+    "Navigation",
+    "getColorsTheme",
+    "getTitleTopAppBar"
+  ],
+  "top_impacted_files": [
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 102,
+      "mcc": 4,
+      "declarations": [
+        "data.ExpenseRepoImpl"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/di/appModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 14,
+      "mcc": 1,
+      "declarations": [
+        "di.appModule"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "common",
+      "rloc": 8,
+      "mcc": 1,
+      "declarations": [
+        "com.example.common.ExpenseRepoImpl"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "common",
+      "rloc": 8,
+      "mcc": 1,
+      "declarations": [
+        "com.example.common.ExpenseRepoImpl"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "source_set": "commonMain",
+      "rloc": 45,
+      "mcc": 11,
+      "declarations": [
+        "AppTheme",
+        "getColorsTheme",
+        "DarkModeColors"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "source_set": "commonMain",
+      "rloc": 341,
+      "mcc": 7,
+      "declarations": [
+        "ui.ExpensesDetailScreen",
+        "ui.ExpenseAmount",
+        "ui.ExpenseTypeSelector",
+        "ui.ExpenseDescription",
+        "ui.CategoryBottomSheetContent",
+        "ui.CategoryItem"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "source_set": "commonMain",
+      "rloc": 115,
+      "mcc": 5,
+      "declarations": [
+        "App",
+        "getTitleTopAppBar"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/navigation/Navigator.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "source_set": "commonMain",
+      "rloc": 49,
+      "mcc": 3,
+      "declarations": [
+        "navigation.Navigation"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonTest/kotlin/ExpenseScreenUiTest.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "source_set": "commonTest",
+      "rloc": 141,
+      "mcc": 1,
+      "declarations": [
+        "ExpenseScreenUiTest"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/previews/ProjectPreviews.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "source_set": "androidMain",
+      "rloc": 55,
+      "mcc": 1,
+      "declarations": [
+        "previews.ExpensesTotalHeaderPreview",
+        "previews.AllExpensesHeaderPreview",
+        "previews.ExpensesItemPreview",
+        "previews.ExpenseScreenPreview",
+        "previews.ExpenseAmountPreview"
+      ]
+    }
+  ],
+  "version_key": "ktor",
+  "compilation_after": "success",
+  "compile_errors": 0,
+  "has_detekt": false,
+  "has_kover": false,
+  "tools_used": {
+    "tree_sitter": true,
+    "ksp": false,
+    "detekt": false,
+    "kover": false,
+    "droidbot": false,
+    "codecharta": true
+  }
+}

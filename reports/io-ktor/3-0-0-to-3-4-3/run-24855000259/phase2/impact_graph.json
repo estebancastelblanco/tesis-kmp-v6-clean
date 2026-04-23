@@ -1,0 +1,399 @@
+{
+  "dependency_group": "io.ktor",
+  "version_before": "3.0.0",
+  "version_after": "3.4.3",
+  "seed_files": [
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/di/appModule.kt",
+    "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+    "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt"
+  ],
+  "impacted_files": [
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt",
+      "relation": "direct",
+      "distance": 0,
+      "imports_from_dependency": [
+        "com.expenseApp.db.AppDatabase",
+        "domain.ExpenseRepository",
+        "io.ktor.client.HttpClient",
+        "io.ktor.client.call.body",
+        "io.ktor.client.request.delete",
+        "io.ktor.client.request.get",
+        "io.ktor.client.request.post",
+        "io.ktor.client.request.put",
+        "io.ktor.client.request.setBody",
+        "io.ktor.http.ContentType",
+        "io.ktor.http.contentType",
+        "model.Expense",
+        "model.ExpenseCategory",
+        "model.NetworkExpense"
+      ],
+      "metrics": {
+        "rloc": 102,
+        "functions": 1,
+        "mcc": 4,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "data.ExpenseRepoImpl"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/di/appModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "imports_from_dependency": [
+        "com.expenseApp.db.AppDatabase",
+        "data.ExpenseRepoImpl",
+        "domain.ExpenseRepository",
+        "io.ktor.client.HttpClient",
+        "io.ktor.client.plugins.contentnegotiation.ContentNegotiation",
+        "io.ktor.serialization.kotlinx.json.json",
+        "org.koin.dsl.module",
+        "presentacion.ExpensesViewModel"
+      ],
+      "metrics": {
+        "rloc": 14,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "di.appModule"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "imports_from_dependency": [
+        "io.ktor.client.HttpClient",
+        "io.ktor.client.request.get"
+      ],
+      "metrics": {
+        "rloc": 8,
+        "functions": 0,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.common.ExpenseRepoImpl"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/CommonModule.kt",
+      "relation": "direct",
+      "distance": 0,
+      "imports_from_dependency": [
+        "io.ktor.client.HttpClient",
+        "io.ktor.client.request.get"
+      ],
+      "metrics": {
+        "rloc": 8,
+        "functions": 0,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.common.ExpenseRepoImpl"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 341,
+        "functions": 3,
+        "mcc": 7,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "ui.ExpensesDetailScreen",
+        "ui.ExpenseAmount",
+        "ui.ExpenseTypeSelector",
+        "ui.ExpenseDescription",
+        "ui.CategoryBottomSheetContent",
+        "ui.CategoryItem"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/previews/ProjectPreviews.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 55,
+        "functions": 5,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "previews.ExpensesTotalHeaderPreview",
+        "previews.AllExpensesHeaderPreview",
+        "previews.ExpensesItemPreview",
+        "previews.ExpenseScreenPreview",
+        "previews.ExpenseAmountPreview"
+      ],
+      "source_set": "androidMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 115,
+        "functions": 2,
+        "mcc": 5,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "App",
+        "getTitleTopAppBar"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/org/example/project/MainApplication.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 18,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "org.example.project.MainApplication"
+      ],
+      "source_set": "androidMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 45,
+        "functions": 2,
+        "mcc": 11,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "AppTheme",
+        "getColorsTheme",
+        "DarkModeColors"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/iosMain/kotlin/MainViewController.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 11,
+        "functions": 2,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "MainViewController",
+        "initKoin"
+      ],
+      "source_set": "ios"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonTest/kotlin/ExepnseRepoTest.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 10,
+        "functions": 5,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [],
+      "source_set": "commonTest"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/iosMain/kotlin/CrossConfigDevice.ios.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 10,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "CrossConfigDevice"
+      ],
+      "source_set": "ios"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/AppModule.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 7,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.di.appModule"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/AppModule.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 7,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.di.appModule"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ViewModel.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 6,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.ui.ExpensesViewModel"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ViewModel.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 6,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "com.example.ui.ExpensesViewModel"
+      ],
+      "source_set": "common"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/navigation/Navigator.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 49,
+        "functions": 1,
+        "mcc": 3,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "navigation.Navigation"
+      ],
+      "source_set": "commonMain"
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonTest/kotlin/ExpenseScreenUiTest.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "imports_from_dependency": [],
+      "metrics": {
+        "rloc": 141,
+        "functions": 5,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      },
+      "declarations": [
+        "ExpenseScreenUiTest"
+      ],
+      "source_set": "commonTest"
+    }
+  ],
+  "expect_actual_pairs": [
+    {
+      "expect_fqcn": "data.DatabaseDriverFactory",
+      "expect_file": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/DatabaseDriverFactory.kt",
+      "actual_files": [
+        "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/data/DatabaseDriverFactory.android.kt",
+        "/tmp/output/phase1/before/composeApp/src/iosMain/kotlin/data/DatabaseDriverFactory.ios.kt"
+      ]
+    },
+    {
+      "expect_fqcn": "com.example.common.DatabaseDriverFactory",
+      "expect_file": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ExpectClass.kt",
+      "actual_files": [
+        "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt",
+        "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt"
+      ]
+    }
+  ],
+  "total_project_files": 37,
+  "total_impacted": 18,
+  "ksp_edges_added": 0
+}

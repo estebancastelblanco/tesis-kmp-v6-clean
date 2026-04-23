@@ -1,0 +1,22 @@
+{
+  "before_dir": "/tmp/output/phase1/before",
+  "after_dir": "/tmp/output/phase1/after",
+  "version_change": {
+    "dependency_group": "androidx.core",
+    "version_key": "androidx-core-ktx",
+    "before": "1.12.0",
+    "after": "1.18.0"
+  },
+  "init_script_injected": false,
+  "detekt_reports": {},
+  "kover_reports": {},
+  "compilation_after": {
+    "status": "success",
+    "errors": [],
+    "tasks": [
+      "composeApp:compileKotlinIosSimulatorArm64",
+      "composeApp:compileKotlinIosArm64",
+      "composeApp:compileKotlinIosX64"
+    ]
+  }
+}

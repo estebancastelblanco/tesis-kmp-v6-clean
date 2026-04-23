@@ -1,0 +1,199 @@
+{
+  "dependency_group": "androidx.compose.foundation",
+  "version_before": "1.6.1",
+  "version_after": "1.11.0",
+  "risk_level": "high",
+  "recommendation": "Hold merge until impacted files are reviewed and targeted regression checks pass.",
+  "report_url": "",
+  "total_impacted_files": 15,
+  "total_impacted_screens": 21,
+  "direct_impacts": 10,
+  "transitive_impacts": 5,
+  "expect_actual_impacts": 0,
+  "total_project_files": 37,
+  "dynamic_status": "skipped",
+  "dynamic_summary": "skipped",
+  "dynamic_diffs": 0,
+  "before_screens": 0,
+  "after_screens": 0,
+  "screen_mappings": 21,
+  "trace_entries": 15,
+  "seed_files": [
+    "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/org/example/project/MainActivity.kt",
+    "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/previews/ProjectPreviews.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/SessionCache.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/navigation/Navigator.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesScreen.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/utils/SwipeToDeleteContainer.kt",
+    "/tmp/output/phase1/before/composeApp/src/commonTest/kotlin/ExpenseScreenUiTest.kt"
+  ],
+  "impacted_screens": [
+    "AllExpensesHeader",
+    "AllExpensesHeaderPreview",
+    "App",
+    "AppAndroidPreview",
+    "AppTheme",
+    "DeleteBackground",
+    "ExpenseAmount",
+    "ExpenseAmountPreview",
+    "ExpenseDescription",
+    "ExpenseScreenPreview",
+    "ExpensesDetailScreen",
+    "ExpensesItem",
+    "ExpensesItemPreview",
+    "ExpensesScreen",
+    "ExpensesTotalHeader",
+    "ExpensesTotalHeaderPreview",
+    "Main",
+    "MainApplication",
+    "Navigation",
+    "getColorsTheme",
+    "getTitleTopAppBar"
+  ],
+  "top_impacted_files": [
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 45,
+      "mcc": 11,
+      "declarations": [
+        "AppTheme",
+        "getColorsTheme",
+        "DarkModeColors"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 341,
+      "mcc": 7,
+      "declarations": [
+        "ui.ExpensesDetailScreen",
+        "ui.ExpenseAmount",
+        "ui.ExpenseTypeSelector",
+        "ui.ExpenseDescription",
+        "ui.CategoryBottomSheetContent",
+        "ui.CategoryItem"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/utils/SwipeToDeleteContainer.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 96,
+      "mcc": 6,
+      "declarations": [
+        "utils.SwipeToDeleteContainer",
+        "utils.DeleteBackground"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 115,
+      "mcc": 5,
+      "declarations": [
+        "App",
+        "getTitleTopAppBar"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesScreen.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 206,
+      "mcc": 4,
+      "declarations": [
+        "ui.ExpensesScreen",
+        "ui.ExpensesTotalHeader",
+        "ui.AllExpensesHeader",
+        "ui.ExpensesItem"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/navigation/Navigator.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 49,
+      "mcc": 3,
+      "declarations": [
+        "navigation.Navigation"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/org/example/project/MainActivity.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "androidMain",
+      "rloc": 38,
+      "mcc": 3,
+      "declarations": [
+        "org.example.project.MainActivity",
+        "org.example.project.SetColorStatusBar",
+        "org.example.project.AppAndroidPreview"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonTest/kotlin/ExpenseScreenUiTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonTest",
+      "rloc": 141,
+      "mcc": 1,
+      "declarations": [
+        "ExpenseScreenUiTest"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/previews/ProjectPreviews.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "androidMain",
+      "rloc": 55,
+      "mcc": 1,
+      "declarations": [
+        "previews.ExpensesTotalHeaderPreview",
+        "previews.AllExpensesHeaderPreview",
+        "previews.ExpensesItemPreview",
+        "previews.ExpenseScreenPreview",
+        "previews.ExpenseAmountPreview"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/SessionCache.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 10,
+      "mcc": 1,
+      "declarations": [
+        "data.SessionCache"
+      ]
+    }
+  ],
+  "version_key": "compose",
+  "compilation_after": "success",
+  "compile_errors": 0,
+  "has_detekt": false,
+  "has_kover": false,
+  "tools_used": {
+    "tree_sitter": true,
+    "ksp": false,
+    "detekt": false,
+    "kover": false,
+    "droidbot": false,
+    "codecharta": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "dependency_group": "androidx.appcompat",
+  "version_before": "1.6.1",
+  "version_after": "1.7.1",
+  "static_impact": {
+    "dependency_group": "androidx.appcompat",
+    "version_before": "1.6.1",
+    "version_after": "1.7.1",
+    "seed_files": [],
+    "impacted_files": [],
+    "expect_actual_pairs": [
+      {
+        "expect_fqcn": "data.DatabaseDriverFactory",
+        "expect_file": "/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/DatabaseDriverFactory.kt",
+        "actual_files": [
+          "/tmp/output/phase1/before/composeApp/src/androidMain/kotlin/data/DatabaseDriverFactory.android.kt",
+          "/tmp/output/phase1/before/composeApp/src/iosMain/kotlin/data/DatabaseDriverFactory.ios.kt"
+        ]
+      },
+      {
+        "expect_fqcn": "com.example.common.DatabaseDriverFactory",
+        "expect_file": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ExpectClass.kt",
+        "actual_files": [
+          "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt",
+          "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt"
+        ]
+      }
+    ],
+    "total_project_files": 37,
+    "total_impacted": 0,
+    "ksp_edges_added": 0
+  },
+  "dynamic_regressions": {
+    "status": "skipped",
+    "blocked_reason": "",
+    "before_screens": [],
+    "after_screens": [],
+    "diffs": []
+  },
+  "screen_mappings": [],
+  "trace": [],
+  "impacted_screens": [],
+  "total_impacted_files": 0,
+  "total_impacted_screens": 0
+}

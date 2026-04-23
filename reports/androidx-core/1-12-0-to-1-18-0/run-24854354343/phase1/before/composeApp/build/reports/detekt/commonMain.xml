@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesScreen.kt">
+	<error line="51" column="5" severity="warning" message="The function ExpensesScreen is too long (61). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="51" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="124" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="143" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="170" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="220" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesScreen.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="72" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="125" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="158" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="178" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="186" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt">
+	<error line="161" column="5" severity="warning" message="The function ExpenseAmount is too long (69). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="67" column="5" severity="warning" message="The function ExpensesDetailScreen is too long (84). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="67" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="161" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="236" column="13" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="275" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="320" column="13" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="338" column="13" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="354" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/ui/ExpensesDetailScreen.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="133" column="76" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="259" column="57" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="326" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt">
+	<error line="31" column="5" severity="warning" message="The function App is too long (72). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="31" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="122" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/App.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="87" column="60" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/presentacion/ExpensesViewModel.kt">
+	<error line="35" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="45" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="56" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="67" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="80" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/presentacion/ExpensesViewModel.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/utils/SwipeToDeleteContainer.kt">
+	<error line="35" column="9" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="82" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="102" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/utils/SwipeToDeleteContainer.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="92" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/navigation/Navigator.kt">
+	<error line="19" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt">
+	<error line="9" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="27" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="28" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="29" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="30" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="31" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="32" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="52" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/AppTheme.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="27" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="73" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="49" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/domain/ExpenseRepository.kt">
+	<error line="12" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/domain/ExpenseRepository.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseManager.kt">
+	<error line="84" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseManager.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/DatabaseDriverFactory.kt">
+	<error line="7" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/DatabaseDriverFactory.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/CrossConfigDevice.kt">
+	<error line="5" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/CrossConfigDevice.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/SessionCache.kt">
+	<error line="13" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/SessionCache.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt">
+	<error line="112" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/ExpenseRepoImpl.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/TitleTopBarTypes.kt">
+	<error line="7" column="2" severity="warning" message="The file /tmp/output/phase1/before/composeApp/src/commonMain/kotlin/data/TitleTopBarTypes.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/tmp/output/phase1/before/composeApp/build/generated/sqldelight/code/AppDatabase/commonMain/com/expenseApp/db/ExpensesDbQueries.kt">
+	<error line="20" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="43" column="61" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="61" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="64" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="69" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="80" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="86" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="90" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="92" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="98" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="104" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

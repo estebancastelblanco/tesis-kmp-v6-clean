@@ -1,0 +1,22 @@
+{
+  "before_dir": "/tmp/output/phase1/before",
+  "after_dir": "/tmp/output/phase1/after",
+  "version_change": {
+    "dependency_group": "androidx.appcompat",
+    "version_key": "androidx-appcompat",
+    "before": "1.6.1",
+    "after": "1.7.1"
+  },
+  "init_script_injected": false,
+  "detekt_reports": {},
+  "kover_reports": {},
+  "compilation_after": {
+    "status": "success",
+    "errors": [],
+    "tasks": [
+      "composeApp:compileKotlinIosSimulatorArm64",
+      "composeApp:compileKotlinIosArm64",
+      "composeApp:compileKotlinIosX64"
+    ]
+  }
+}

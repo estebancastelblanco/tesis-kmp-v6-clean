@@ -1,0 +1,121 @@
+{
+  "nodes": [
+    {
+      "id": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main"
+    },
+    {
+      "id": "requests@2.31.0"
+    },
+    {
+      "id": "actions/setup-java@4.*.*"
+    },
+    {
+      "id": "tree-sitter-kotlin@>= 0.1"
+    },
+    {
+      "id": "actions/upload-artifact@4.*.*"
+    },
+    {
+      "id": "actions/upload-pages-artifact@4.*.*"
+    },
+    {
+      "id": "actions/setup-node@4.*.*"
+    },
+    {
+      "id": "actions/setup-python@5.*.*"
+    },
+    {
+      "id": "pydantic@>= 2.0"
+    },
+    {
+      "id": "click@>= 8.1"
+    },
+    {
+      "id": "actions/checkout@4.*.*"
+    },
+    {
+      "id": "actions/deploy-pages@4.*.*"
+    },
+    {
+      "id": "actions/download-artifact@4.*.*"
+    },
+    {
+      "id": "actions/github-script@7.*.*"
+    },
+    {
+      "id": "rich@>= 13.0"
+    },
+    {
+      "id": "tree-sitter@>= 0.21,< 0.24"
+    },
+    {
+      "id": "pyyaml@>= 6.0"
+    }
+  ],
+  "links": [
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "requests@2.31.0"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/setup-java@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "tree-sitter-kotlin@>= 0.1"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/upload-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/upload-pages-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/setup-node@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/setup-python@5.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "pydantic@>= 2.0"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "click@>= 8.1"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/checkout@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/deploy-pages@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/download-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "actions/github-script@7.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "rich@>= 13.0"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "tree-sitter@>= 0.21,< 0.24"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v6-clean@main",
+      "target": "pyyaml@>= 6.0"
+    }
+  ]
+}

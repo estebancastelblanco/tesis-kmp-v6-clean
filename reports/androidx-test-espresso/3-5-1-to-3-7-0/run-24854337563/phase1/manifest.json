@@ -1,0 +1,22 @@
+{
+  "before_dir": "/tmp/output/phase1/before",
+  "after_dir": "/tmp/output/phase1/after",
+  "version_change": {
+    "dependency_group": "androidx.test.espresso",
+    "version_key": "androidx-espresso-core",
+    "before": "3.5.1",
+    "after": "3.7.0"
+  },
+  "init_script_injected": false,
+  "detekt_reports": {},
+  "kover_reports": {},
+  "compilation_after": {
+    "status": "success",
+    "errors": [],
+    "tasks": [
+      "composeApp:compileKotlinIosX64",
+      "composeApp:compileKotlinMetadata",
+      "composeApp:compileKotlinIosSimulatorArm64"
+    ]
+  }
+}
